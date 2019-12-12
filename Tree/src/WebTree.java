@@ -55,19 +55,19 @@ public class WebTree {
 	}
 	private void filterURL() {
 		filterURL(root);
-		if(!root.webPage.url.contains("news")||!root.webPage.url.contains("cnn")) {
+		if(!root.webPage.url.contains("news")&&!root.webPage.url.contains("cnn")) {
 			root = root.children.get(0);
 		}
 	}
 	private void filterURL(WebNode startNode) {
 		if (!startNode.children.isEmpty()) {
-			for (WebNode child : root.children) {
+			for (WebNode child : startNode.children) {
 				if (!child.children.isEmpty()) {
 					filterURL(child);
 				}
 				else {
-					if(!child.webPage.url.contains("news")||!child.webPage.url.contains("cnn")) {
-						root.children.remove(child);
+					if(!child.webPage.url.contains("news")&&!child.webPage.url.contains("cnn")) {
+						startNode.children.remove(child);
 					}
 				}
 			}
