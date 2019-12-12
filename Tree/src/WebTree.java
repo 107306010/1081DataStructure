@@ -64,6 +64,7 @@ public class WebTree {
 			for (WebNode child : startNode.children) {
 				if (!child.children.isEmpty()) {
 					filterURL(child);
+					
 				}
 				else {
 					if(!child.webPage.url.contains("news")&&!child.webPage.url.contains("cnn")) {
